@@ -1,38 +1,64 @@
-.App {
+body {
+  background-color: #070707;
+}
+
+#title-box {
+  width: 100%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#title {
+  display: inline-block;
+  color: #EBEEE8;
+  font-family: 'Unbounded';
+  font-weight: 600;
+  font-size: 36px;
+  position: relative;
+  z-index: 1;
+  cursor: default;
+  margin-bottom: 40px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#title::after {
+  content: 'React to News';
+  position: absolute;
+  color: #DF5612;
+  left: 1px;
+  top: 4px;
+  transform: scale(0.98);
+  font-weight: 500;
+  z-index: -1;
+  transition: 0.15s ease-in-out;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#title:hover::after {
+  transform: scale(1.03);
+  top: -3px;
+}
+
+#news-list {
+  margin: 0;
+  padding: 0 7% 0 7%;
+  list-style-type: none;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.news-item:nth-child(even) {
+  display: flex;
+  justify-content: flex-end;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.news-block {
+  display: inline-block;
+  width: 50vw;
+  height: 20vh;
+  background-color: #DF5612;
+  border-radius: 38px;
+  margin-bottom: 80px;
 }
+
+
+
+
+
