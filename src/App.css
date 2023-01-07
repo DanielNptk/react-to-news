@@ -52,6 +52,11 @@ body {
   background-color: #DF5612;
   border-radius: 38px;
   margin-bottom: 80px;
+  position: relative;
+}
+
+.news-block:hover {
+  cursor: pointer;
 }
 
 .news-item:nth-child(even) {
@@ -63,9 +68,10 @@ body {
   align-items: flex-end;
 }
 
-/* .news-item:nth-child(even) > .news-block {
-  
-} */
+.news-item:nth-child(even) > .news-block > .reaction-deafault {
+  bottom: -10px;
+  left: -10px;
+}
 
 .news-item:nth-child(3n + 1) > .news-block {
   background-color: #DF5612;
@@ -101,6 +107,38 @@ body {
   padding: 0 20px 0 20px;
 }
 
+.reaction-deafault {
+  height: 50px;
+  width: 50px;
+  background-color: #D9D9D9;
+  border-radius: 15px;
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+}
+
+.reaction-deafault::after {
+  display: flex;
+  justify-content: center;
+  height: 110%;
+  align-items: center;
+}
+
+.news-item:nth-child(even) > .news-block > .reaction-deafault {
+  transform: rotate(-180deg);
+}
+
+.news-item:nth-child(3n + 1) > .news-block > .reaction-deafault::after {
+  content: url(./assets/wink-reaction-orange.svg);
+}
+
+.news-item:nth-child(3n + 2) > .news-block > .reaction-deafault::after {
+  content: url(./assets/wink-reaction-green.svg);
+}
+
+.news-item:nth-child(3n + 3) > .news-block > .reaction-deafault::after {
+  content: url(./assets/wink-reaction-purple.svg);
+}
 
 
 

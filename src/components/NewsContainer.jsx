@@ -8,7 +8,11 @@ export const NewsContainer = (props) => {
     // }
 
     const newsList = Object.keys(newsData).map(newz => {
-        return <li className='news-item'><NewsBlock headline={newsData[newz].headline} content={newsData[newz].content}/></li>
+        return ( 
+            <li className='news-item'>
+                <NewsBlock headline={newsData[newz].headline} content={newsData[newz].content}/>
+            </li>
+        )
     });
 
     return <ul id='news-list'>{newsList}</ul>;
