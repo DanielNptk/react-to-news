@@ -1,5 +1,11 @@
 export const ReactionsList = () => {
+    const reactions = ['happy-emotion', 'loved-emotion', 'enjoyed-emotion', 'unsatisfied-emotion', 'angry-emotion', 'sad-emotion'];
+
+    const reactionsList = reactions.map(emotion => {
+        return <div className={`reaction ${emotion}`}></div>
+    });
+
     return (
-        <div style={{width: "50px", height: "50px", backgroundColor: "tomato"}}></div>
-    )
+        <div className="reaction-list">{reactionsList}</div>
+    );
 }

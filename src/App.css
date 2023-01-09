@@ -45,18 +45,24 @@ body {
 }
 
 .news-block {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   width: 50vw;
   height: 20vh;
   background-color: #DF5612;
   border-radius: 38px;
-  margin-bottom: 80px;
+  /* margin-bottom: 80px; */
   position: relative;
 }
 
 .news-block:hover {
   cursor: pointer;
+}
+
+.news-item {
+  display: flex;
+  margin-bottom: 80px;
+  column-gap: 35px;
 }
 
 .news-item:nth-child(even) {
@@ -138,6 +144,54 @@ body {
 
 .news-item:nth-child(3n + 3) > .news-block > .reaction-deafault::after {
   content: url(./assets/wink-reaction-purple.svg);
+}
+
+.reaction-list {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  align-self: flex-end;
+}
+
+.reaction {
+  display: inline-block;
+  width: 63px;
+  height: 54px;
+  background-repeat: no-repeat;
+}
+
+.happy-emotion {
+  background-image: url(./assets/happy-emotion.svg);
+}
+
+.loved-emotion {
+  background-image: url(./assets/loved-emotion.svg);
+  background-position: center;
+  position: relative;
+}
+
+.loved-emotion::after {
+  content: url(./assets/hearts.svg);
+  position: absolute;
+  top: -2.5px;
+  left: -7px;
+}
+
+.enjoyed-emotion {
+  background-image: url(./assets/enjoyed-emotion.svg);
+}
+
+.unsatisfied-emotion {
+  background-image: url(./assets/unsatisfied-emotion.svg);
+}
+
+.angry-emotion {
+  background-image: url(./assets/angry-emotion.svg);
+}
+
+.sad-emotion {
+  background-image: url(./assets/sad-emotion.svg);
 }
 
 
