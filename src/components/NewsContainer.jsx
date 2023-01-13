@@ -1,16 +1,22 @@
 import { NewsBlock } from "./NewsBlock";
 import newsData from '../data/news-data.json';
+import { useState } from "react";
 
 
-export const NewsContainer = (props) => {
-    // for(const newz in newsData) {
-    //     console.log(newsData[newz].content);
-    // }
+export const NewsContainer = () => {
+    let newsArr = [];
+    Object.keys(newsData).forEach((newz) => {
+        newsArr.push(newsData[newz]);
+    });
 
-    const newsList = Object.keys(newsData).map(newz => {
+    const newsList = newsArr.map(newz => {
         return ( 
-            <li className='news-item'>
-                <NewsBlock headline={newsData[newz].headline} content={newsData[newz].content}/>
+            <li className='news-item' key={newz.id}>
+                <NewsBlock 
+                    headline={newz.headline} 
+                    content={newz.content}
+                    newsId={newz.id}
+                />
             </li>
         )
     });

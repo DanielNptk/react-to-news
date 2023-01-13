@@ -48,7 +48,7 @@ body {
   display: inline-flex;
   flex-direction: column;
   width: 50vw;
-  height: 20vh;
+  min-height: 20vh;
   background-color: #DF5612;
   border-radius: 38px;
   /* margin-bottom: 80px; */
@@ -67,14 +67,14 @@ body {
 
 .news-item:nth-child(even) {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row-reverse;
 }
 
 .news-item:nth-child(even) > .news-block {
   align-items: flex-end;
 }
 
-.news-item:nth-child(even) > .news-block > .reaction-deafault {
+.news-item:nth-child(even) .reaction-container {
   bottom: -10px;
   left: -10px;
 }
@@ -110,17 +110,22 @@ body {
   font-family: 'Kanit';
   font-weight: 500;
   font-size: 14px;
-  padding: 0 20px 0 20px;
+  padding: 0 20px 20px 20px;
+}
+
+.reaction-container {
+  width: auto;
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
 }
 
 .reaction-deafault {
+  display: inline-block;
   height: 50px;
   width: 50px;
   background-color: #D9D9D9;
   border-radius: 15px;
-  position: absolute;
-  right: -10px;
-  bottom: -10px;
 }
 
 .reaction-deafault::after {
@@ -130,19 +135,19 @@ body {
   align-items: center;
 }
 
-.news-item:nth-child(even) > .news-block > .reaction-deafault {
+.news-item:nth-child(even) .reaction-deafault {
   transform: rotate(-180deg);
 }
 
-.news-item:nth-child(3n + 1) > .news-block > .reaction-deafault::after {
+.news-item:nth-child(3n + 1) .reaction-deafault::after {
   content: url(./assets/wink-reaction-orange.svg);
 }
 
-.news-item:nth-child(3n + 2) > .news-block > .reaction-deafault::after {
+.news-item:nth-child(3n + 2) .reaction-deafault::after {
   content: url(./assets/wink-reaction-green.svg);
 }
 
-.news-item:nth-child(3n + 3) > .news-block > .reaction-deafault::after {
+.news-item:nth-child(3n + 3) .reaction-deafault::after {
   content: url(./assets/wink-reaction-purple.svg);
 }
 
@@ -152,6 +157,7 @@ body {
   grid-template-rows: 1fr 1fr;
   gap: 10px;
   align-self: flex-end;
+  transform: translateY(11px);
 }
 
 .reaction {
@@ -159,6 +165,7 @@ body {
   width: 63px;
   height: 54px;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .happy-emotion {
@@ -174,7 +181,7 @@ body {
 .loved-emotion::after {
   content: url(./assets/hearts.svg);
   position: absolute;
-  top: -2.5px;
+  top: -3.5px;
   left: -7px;
 }
 

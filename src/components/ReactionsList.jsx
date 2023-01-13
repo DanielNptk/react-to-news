@@ -1,8 +1,15 @@
-export const ReactionsList = () => {
-    const reactions = ['happy-emotion', 'loved-emotion', 'enjoyed-emotion', 'unsatisfied-emotion', 'angry-emotion', 'sad-emotion'];
+import { useState } from "react";
+
+export const ReactionsList = (props) => {
+    const reactions = ['happy-emotion', 'enjoyed-emotion', 'loved-emotion', 'unsatisfied-emotion', 'angry-emotion', 'sad-emotion'];
+
+    const pickReaction = (emotion) => {
+        props.setChangeReaction(emotion);
+        props.setShowReactions(false);
+    }
 
     const reactionsList = reactions.map(emotion => {
-        return <div className={`reaction ${emotion}`}></div>
+        return <div onClick={() => pickReaction(emotion)} key={emotion} className={`reaction ${emotion}`}></div>
     });
 
     return (

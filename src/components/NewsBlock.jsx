@@ -1,11 +1,13 @@
-import { Reaction } from "./Reaction"
-import { useState } from "react";
+import React from "react";
+import { Reaction } from "./Reaction";
 import { ReactionsList } from "./ReactionsList";
+import { useState } from "react";
 
 export const NewsBlock = (props) => {
     const [showReactions, setShowReactions] = useState(false);
+    const [changeReaction, setChangeReaction] = useState('reaction-deafault');
 
-    function switchReactions() {
+    const switchReactions = () => {
         setShowReactions(!showReactions);
     }
 
@@ -14,9 +16,9 @@ export const NewsBlock = (props) => {
             <div className="news-block" onClick={switchReactions}>
                 <div className="headline">{props.headline}</div>
                 <div className="news-content">{props.content}</div>
-                <Reaction />
+                <Reaction changeReaction={changeReaction}/>
             </div>
-            {showReactions && <ReactionsList />}
+            {showReactions && <ReactionsList setChangeReaction={setChangeReaction} setShowReactions={setShowReactions} />}
         </>
     )
 }
