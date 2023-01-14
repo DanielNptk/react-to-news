@@ -5,7 +5,7 @@ export const ReactionsList = (props) => {
 
     const pickReaction = (emotion) => {
         props.setChangeReaction(emotion);
-        props.setShowReactions(false);
+        props.setShowReactions(-1);
     }
 
     const reactionsList = reactions.map(emotion => {
